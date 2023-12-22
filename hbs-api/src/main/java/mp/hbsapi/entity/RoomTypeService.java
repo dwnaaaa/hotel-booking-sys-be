@@ -1,11 +1,13 @@
 package mp.hbsapi.entity;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import mp.hbsapi.entity.key.RoomTypeServiceKey;
 
 @Entity(name = "ROOM_TYPE_SERVICE")
 @RequiredArgsConstructor
@@ -13,8 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RoomTypeService {
-    @Id
-    private String serviceName;
-    private char roomType;
+    @EmbeddedId
+    private RoomTypeServiceKey id;
     private int price;
 }

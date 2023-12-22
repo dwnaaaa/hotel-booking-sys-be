@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
-public class BRNRoomKey implements Serializable {
-    private long BRN;
-    private int roomNumber;
+public class RoomTypeServiceKey implements Serializable {
+    private String serviceName;
+    private char roomType;
 }

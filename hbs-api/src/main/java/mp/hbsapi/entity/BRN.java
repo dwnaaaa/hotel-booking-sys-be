@@ -20,7 +20,7 @@ public class BRN {
     @Id
 //    @GeneratedValue(generator = "brn_seq")
 //    @SequenceGenerator(name = "brn_seq", sequenceName = "BRN_SEQ", allocationSize = 1)
-    private long brnId;
+    private long BRN;
     private long primaryGuestId;
     private String checkInDate;
     private String checkOutDate;

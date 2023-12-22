@@ -14,6 +14,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class BRNGuestKey implements Serializable {
-    private long brnId;
+    private long BRN;
     private long guestId;
 }

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
-public class BRNRoomKey implements Serializable {
+public class BRNServiceKey implements Serializable {
     private long BRN;
-    private int roomNumber;
+    private long serviceId;
 }

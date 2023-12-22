@@ -1,20 +1,20 @@
 package mp.hbsapi.entity;
 
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import mp.hbsapi.entity.key.BRNServiceKey;
 
-@Entity(name = "BRN_SERVICES")
+@Entity(name = "PRODUCTS")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class BRNService {
-    @EmbeddedId
-    private BRNServiceKey id;
-    private int roomNumber;
+public class Product {
+    @Id
+    private long productId;
+    private String productName;
+    private int price;
 }
