@@ -9,6 +9,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Entity(name = "BRN")
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -20,16 +24,25 @@ public class BRN {
 //    @SequenceGenerator(name = "brn_seq", sequenceName = "BRN_SEQ", allocationSize = 1)
     private long brn;
     private long primaryGuestId;
-    private String checkInDate;
-    private String checkOutDate;
+    private Date checkInDate;
+    private Date checkOutDate;
     private char roomType;
     private int noOfRooms;
 
     public BRN(long primaryGuestId, String checkInDate, String checkOutDate, char roomType, int noOfRooms) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         this.primaryGuestId = primaryGuestId;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
         this.roomType = roomType;
         this.noOfRooms = noOfRooms;
+        // Parse string to date
+        try {
+            this.checkInDate = dateFormat.parse(checkInDate);
+            if(checkOutDate != null) {
+                this.checkOutDate = dateFormat.parse(checkOutDate);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
