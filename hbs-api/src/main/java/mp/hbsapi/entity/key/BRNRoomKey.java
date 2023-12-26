@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 @RequiredArgsConstructor
@@ -14,6 +15,23 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class BRNRoomKey implements Serializable {
-    private long BRN;
+    private long brn;
     private int roomNumber;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        BRNRoomKey that = (BRNRoomKey) obj;
+        return Objects.equals(brn, that.brn) && Objects.equals(roomNumber, that.roomNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brn, roomNumber);
+    }
 }

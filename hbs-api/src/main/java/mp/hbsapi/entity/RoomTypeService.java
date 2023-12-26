@@ -2,7 +2,6 @@ package mp.hbsapi.entity;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +16,4 @@ import mp.hbsapi.entity.key.RoomTypeServiceKey;
 public class RoomTypeService {
     @EmbeddedId
     private RoomTypeServiceKey id;
-    private int price;
 }

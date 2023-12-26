@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 @Entity(name = "GUEST")
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -28,4 +31,25 @@ public class Guest {
     private String city;
     private String state;
     private int zipCode;
+    private String contactNo;
+    private String emailAdd;
+
+    public Guest(String firstName, String middleName, String lastName, String birthday, String street, String city,
+                 String state, int zipCode, String contactNo, String emailAdd) {
+        // Calculate age from birthday
+        LocalDate birthdate = LocalDate.parse(birthday);
+        Period age = Period.between(birthdate, LocalDate.now());
+
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.age = age.getYears();
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.contactNo = contactNo;
+        this.emailAdd = emailAdd;
+    }
 }

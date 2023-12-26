@@ -15,10 +15,11 @@ import lombok.Setter;
 public class RoomType {
     @Id
     private char roomType;
+    private String roomTypeName;
     private char bedType;
+    private String roomTypeDesc;
     private int price;
     private int maxGuests;
-    private int numberOfBeds;
+    private int noOfBeds;
     private float area;
-    private String description;
 }

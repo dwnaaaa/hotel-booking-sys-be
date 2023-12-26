@@ -1,9 +1,9 @@
 package mp.hbsapi.controller;
 
+import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.BRN;
-import mp.hbsapi.entity.BillPayment;
+import mp.hbsapi.entity.request.AddBookingRequest;
 import mp.hbsapi.service.BookingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,27 +11,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/bookings")
+@RequiredArgsConstructor
+@RequestMapping("/booking")
 public class BookingController {
 
-    @Autowired
-    private BookingService bookingService;
+    private final BookingService bookingService;
 
-    @GetMapping("/confirmed")
-    public ResponseEntity<List<BRN>> getAllConfirmedBookings() {
-        List<BRN> confirmedBookings = bookingService.getAllConfirmedBookings();
-        return new ResponseEntity<>(confirmedBookings, HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<BRN>> getAllBookings() {
+        return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.OK);
     }
 
-    @PostMapping("/new")
-    public ResponseEntity<BRN> addNewBooking(@RequestBody BRN newBooking) {
-        BRN addedBooking = bookingService.addNewBooking(newBooking);
-        return new ResponseEntity<>(addedBooking, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/{brn}/bill-payment")
-    public ResponseEntity<BillPayment> getBillPayment(@PathVariable String brn) {
-        BillPayment billPayment = bookingService.getBillPayment(brn);
-        return new ResponseEntity<>(billPayment, HttpStatus.OK);
+    @PostMapping("/add")
+    public ResponseEntity<BRN> addBooking(@RequestBody AddBookingRequest bookingToAdd) {
+        return new ResponseEntity<>(bookingService.addBooking(bookingToAdd), HttpStatus.CREATED);
     }
 }

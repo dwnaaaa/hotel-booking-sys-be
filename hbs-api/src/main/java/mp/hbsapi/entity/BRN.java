@@ -9,8 +9,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
-
 @Entity(name = "BRN")
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -20,10 +18,18 @@ public class BRN {
     @Id
 //    @GeneratedValue(generator = "brn_seq")
 //    @SequenceGenerator(name = "brn_seq", sequenceName = "BRN_SEQ", allocationSize = 1)
-    private long BRN;
+    private long brn;
     private long primaryGuestId;
     private String checkInDate;
     private String checkOutDate;
     private char roomType;
-    private int numberOfRooms;
+    private int noOfRooms;
+
+    public BRN(long primaryGuestId, String checkInDate, String checkOutDate, char roomType, int noOfRooms) {
+        this.primaryGuestId = primaryGuestId;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        this.roomType = roomType;
+        this.noOfRooms = noOfRooms;
+    }
 }

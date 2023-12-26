@@ -1,10 +1,11 @@
 package mp.hbsapi.repository;
 
-import mp.hbsapi.entity.BRN;
+import mp.hbsapi.entity.BRNRoom;
+import mp.hbsapi.entity.key.BRNRoomKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BookingRepository extends JpaRepository<BRN, String> {
+public interface BRNRoomRepository extends JpaRepository<BRNRoom, BRNRoomKey> {
 
 }

@@ -15,5 +15,6 @@ import lombok.Setter;
 public class EmployeeType {
     @Id
     private char employeeType;
-    private String typeName;
+    private String employeeTypeName;
+    private int salary;
 }

@@ -15,6 +15,7 @@ import lombok.Setter;
 public class BillPayment {
     @Id
     private long bpId;
+    private String brn;
     private int total;
     private char paymentMethod;
     private long cardId;

@@ -7,17 +7,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "SERVICES")
+@Entity(name = "BED_TYPE")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Service {
+public class BedType {
     @Id
-    private int serviceCode;
-    private String serviceName;
-    private String description;
-    private char employeeType;
-    private long productId;
-    private int price;
+    private char bedType;
+    private String bedTypeName;
 }
