@@ -21,7 +21,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public BRN addBooking(AddBookingRequest bookingToAdd) {
-        // Implement logic to add a new booking to the repository
-        return bookingRepository.save(bookingToAdd.mapToBRN());
+        return bookingRepository.addBooking(bookingToAdd.getPrimaryGuestId(), bookingToAdd.getBookingDate(), bookingToAdd.getCheckInDate(),
+                bookingToAdd.getCheckOutDate(), bookingToAdd.getRoomType(), bookingToAdd.getNoOfRooms());
     }
 }

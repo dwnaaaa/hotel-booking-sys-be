@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import mp.hbsapi.entity.key.BRNGuestKey;
 
-@Entity(name = "BRN_GUESTS")
+@Entity(name = "BRN_GUEST")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter

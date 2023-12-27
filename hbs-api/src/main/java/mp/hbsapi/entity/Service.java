@@ -18,6 +18,6 @@ public class Service {
     private String serviceName;
     private String description;
     private char employeeType;
-    private long productId;
+    private String productId;
     private int price;
 }

@@ -1,6 +1,8 @@
 package mp.hbsapi.entity.key;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +17,10 @@ import java.util.Objects;
 @Getter
 @Setter
 public class BRNGuestKey implements Serializable {
-    private long brn;
-    private long guestId;
+    @JsonProperty("brn")
+    private String brn;
+    @JsonProperty("guest_id")
+    private String guestId;
 
     @Override
     public boolean equals(Object obj) {

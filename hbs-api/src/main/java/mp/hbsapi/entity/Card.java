@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 public class Card {
     @Id
-    private long cardId;
+    private String cardId;
     private long cardNumber;
     private int cvv;
     private String expirationDate;

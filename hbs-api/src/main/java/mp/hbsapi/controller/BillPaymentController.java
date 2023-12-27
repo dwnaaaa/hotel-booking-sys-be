@@ -2,13 +2,11 @@ package mp.hbsapi.controller;
 
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.BillPayment;
+import mp.hbsapi.entity.request.AddBillPaymentRequest;
 import mp.hbsapi.service.BillPaymentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,5 +18,10 @@ public class BillPaymentController {
     @GetMapping("/{brn}")
     public ResponseEntity<BillPayment> getBillPaymentByBrn(@PathVariable String brn) {
         return new ResponseEntity<>(billPaymentService.getBillPaymentByBRN(brn), HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<BillPayment> addBillPayment(@RequestBody AddBillPaymentRequest billPaymentToAdd) {
+        return new ResponseEntity<>(billPaymentService.addBillPayment(billPaymentToAdd), HttpStatus.CREATED);
     }
 }

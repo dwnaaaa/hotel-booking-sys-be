@@ -15,7 +15,7 @@ import java.util.Objects;
 @Getter
 @Setter
 public class BRNServiceKey implements Serializable {
-    private long brn;
+    private String brn;
     private int serviceCode;
 
     @Override

@@ -12,17 +12,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/booking")
+@RequestMapping(path = "/booking")
 public class BookingController {
 
     private final BookingService bookingService;
 
-    @GetMapping("/all")
+    @GetMapping(path = "/all")
     public ResponseEntity<List<BRN>> getAllBookings() {
         return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping(path = "/add")
     public ResponseEntity<BRN> addBooking(@RequestBody AddBookingRequest bookingToAdd) {
         return new ResponseEntity<>(bookingService.addBooking(bookingToAdd), HttpStatus.CREATED);
     }

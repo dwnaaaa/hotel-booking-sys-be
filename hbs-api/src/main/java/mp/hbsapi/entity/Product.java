@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 public class Product {
     @Id
-    private long productId;
+    private String productId;
     private String productName;
     private int price;
 }

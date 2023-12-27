@@ -1,10 +1,14 @@
 package mp.hbsapi.entity.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import mp.hbsapi.entity.Guest;
 
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class AddGuestRequest {
     @JsonProperty("first_name")
     private String firstName;
@@ -21,13 +25,9 @@ public class AddGuestRequest {
     @JsonProperty("state")
     private String state;
     @JsonProperty("zip_code")
-    private int zipCode;
+    private String zipCode;
     @JsonProperty("contact_no")
     private String contactNo;
     @JsonProperty("email_add")
     private String emailAdd;
-
-    public Guest mapToGuest() {
-        return new Guest(firstName, middleName, lastName, birthday, street, city, state, zipCode, contactNo, emailAdd);
-    }
 }
