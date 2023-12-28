@@ -16,4 +16,5 @@ import mp.hbsapi.entity.key.BRNRoomKey;
 public class BRNRoom {
     @EmbeddedId
     private BRNRoomKey id;
+
 }

@@ -2,6 +2,7 @@ package mp.hbsapi.service;
 
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.BRNRoom;
+import mp.hbsapi.entity.key.BRNRoomKey;
 import mp.hbsapi.repository.BRNRoomRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,10 @@ public class BRNRoomServiceImpl implements BRNRoomService {
     @Override
     public BRNRoom addBRNRoom(BRNRoom brnRoom) {
         return brnRoomRepository.save(brnRoom);
+    }
+
+    @Override
+    public Integer findRoomNumberByBrn(String brn) {
+        return brnRoomRepository.findRoomNumberByBrn(brn);
     }
 }

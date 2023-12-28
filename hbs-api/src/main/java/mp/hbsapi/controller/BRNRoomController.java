@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,4 +27,16 @@ public class BRNRoomController {
     public ResponseEntity<BRNRoom> addBRNRoom(@RequestBody BRNRoomKey brnRoomToAdd) {
         return new ResponseEntity<>(brnRoomService.addBRNRoom(new BRNRoom(brnRoomToAdd)), HttpStatus.CREATED);
     }
+
+    @GetMapping("/room-number/{brn}")
+    public ResponseEntity<Integer> getRoomNumberByBrn(@PathVariable String brn) {
+        Integer roomNumber = brnRoomService.findRoomNumberByBrn(brn);
+        if (roomNumber != null) {
+            return ResponseEntity.ok(roomNumber);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }
