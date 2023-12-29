@@ -38,4 +38,10 @@ public class BRNServiceImpl implements BRNServiceService {
         brnServiceRepository.save(brnService);
     }
 
+    @Override
+    public BRNService addBRNService(String brn, int serviceCode, int roomNumber) {
+        BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
+        BRNService brnService = new BRNService(id, roomNumber);
+        return brnServiceRepository.save(brnService);
+    }
 }

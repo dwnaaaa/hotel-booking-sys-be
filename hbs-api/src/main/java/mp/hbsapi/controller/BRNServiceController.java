@@ -2,6 +2,7 @@ package mp.hbsapi.controller;
 
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.BRNService;
+import mp.hbsapi.entity.key.BRNServiceKey;
 import mp.hbsapi.service.BRNServiceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/service")
+@RequestMapping("/brn-service")
 public class BRNServiceController {
 
     private final BRNServiceService brnServiceService;
@@ -46,5 +47,12 @@ public class BRNServiceController {
                                                     @RequestParam int roomNumber) {
         brnServiceService.addDamageRecord(brn, serviceCode, roomNumber);
         return new ResponseEntity<>("Damage record added successfully", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<BRNService> addBRNService(@RequestParam String brn,
+                                                    @RequestParam int serviceCode,
+                                                    @RequestParam int roomNumber) {
+        return new ResponseEntity<>(brnServiceService.addBRNService(brn, serviceCode, roomNumber), HttpStatus.CREATED);
     }
 }

@@ -12,4 +12,6 @@ public interface BRNServiceService {
     void addCleaningRecord(String brn, int serviceCode, int roomNumber);
 
     void addDamageRecord(String brn, int serviceCode, int roomNumber);
+
+    BRNService addBRNService(String brn, int serviceCode, int roomNumber);
 }

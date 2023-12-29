@@ -1,11 +1,7 @@
 package mp.hbsapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity(name = "EMPLOYEE")
 @RequiredArgsConstructor
@@ -18,5 +14,7 @@ public class Employee {
     private String firstName;
     private String middleName;
     private String lastName;
-    private char employeeType;
+    @OneToOne
+    @JoinColumn(name = "EMPLOYEE_TYPE")
+    private EmployeeType employeeType;
 }
