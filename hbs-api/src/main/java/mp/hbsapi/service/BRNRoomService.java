@@ -8,4 +8,7 @@ public interface BRNRoomService {
     List<BRNRoom> getAllBRNRooms();
 
     BRNRoom addBRNRoom(BRNRoom brnRoom);
+
+    Integer findRoomNumberByBrn(String brn);
+
 }
