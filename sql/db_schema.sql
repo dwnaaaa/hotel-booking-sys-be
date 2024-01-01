@@ -252,14 +252,14 @@ END;
 CREATE OR REPLACE PROCEDURE add_card (
     in_card_number VARCHAR2,
     in_cvv VARCHAR2,
-    in_expiration_date DATE
+    in_expiration_date VARCHAR2
 ) IS
     v_generated_card_id VARCHAR2(6);
 BEGIN
     SELECT GENERATE_CARD_ID() INTO v_generated_card_id FROM DUAL;
     INSERT INTO CARD (CARD_ID, CARD_NUMBER, CVV, EXPIRATION_DATE)
     VALUES (v_generated_card_id, in_card_number, in_cvv,
-            in_expiration_date);
+            TO_DATE(in_expiration_date, 'YYYY-MM'));
 END;
 
 CREATE OR REPLACE FUNCTION generate_bp_id RETURN VARCHAR2 IS
