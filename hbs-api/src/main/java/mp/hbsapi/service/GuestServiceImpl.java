@@ -21,8 +21,18 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public Guest addGuest(AddGuestRequest guestToAdd) {
-        return guestRepository.addGuest(guestToAdd.getFirstName(), guestToAdd.getMiddleName(), guestToAdd.getLastName(),
-                guestToAdd.getBirthday(), guestToAdd.getStreet(), guestToAdd.getCity(), guestToAdd.getState(),
-                guestToAdd.getZipCode(), guestToAdd.getContactNo(), guestToAdd.getEmailAdd());
+//        return guestRepository.addGuest(guestToAdd.getFirstName(), guestToAdd.getMiddleName(), guestToAdd.getLastName(),
+//                guestToAdd.getBirthday(), guestToAdd.getStreet(), guestToAdd.getCity(), guestToAdd.getState(),
+//                guestToAdd.getZipCode(), guestToAdd.getContactNo(), guestToAdd.getEmailAdd());
+        return guestRepository.addGuest(guestToAdd.getGuestId(), guestToAdd.getFirstName(), guestToAdd.getMiddleName(),
+                guestToAdd.getLastName(), guestToAdd.getBirthday(), guestToAdd.getStreet(), guestToAdd.getCity(),
+                guestToAdd.getState(), guestToAdd.getZipCode(), guestToAdd.getContactNo(), guestToAdd.getEmailAdd());
+    }
+
+    @Override
+    public void addAllGuests(List<AddGuestRequest> guests) {
+        for (AddGuestRequest guest : guests) {
+            addGuest(guest);
+        }
     }
 }

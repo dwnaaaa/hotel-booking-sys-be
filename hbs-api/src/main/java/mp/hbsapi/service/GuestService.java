@@ -9,4 +9,7 @@ public interface GuestService {
     List<Guest> getAllGuests();
 
     Guest addGuest(AddGuestRequest guestToAdd);
+
+    void addAllGuests(List<AddGuestRequest> guests);
+
 }

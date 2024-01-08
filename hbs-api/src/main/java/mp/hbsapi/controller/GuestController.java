@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/guest")
@@ -22,8 +23,17 @@ public class GuestController {
         return new ResponseEntity<>(guestService.getAllGuests(), HttpStatus.OK);
     }
 
+//    @GetMapping("/{id}")
+//    public ResponseEntity
+
     @PostMapping("/add")
     public ResponseEntity<Guest> addGuest(@RequestBody AddGuestRequest guestToAdd) {
         return new ResponseEntity<>(guestService.addGuest(guestToAdd), HttpStatus.OK);
+    }
+
+    @PostMapping("/add-many")
+    public ResponseEntity<Void> addGuests(@RequestBody List<AddGuestRequest> guestsToAdd) {
+        guestService.addAllGuests(guestsToAdd);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
