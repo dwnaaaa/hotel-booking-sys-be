@@ -18,4 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepository.getAllEmployeesWithType();
     }
+
+    @Override
+    public Character getEmployeeTypeByUsername(String username) {
+        return employeeRepository.getEmployeeTypeByUsername(username);
+    }
 }
