@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface GuestRepository extends JpaRepository<Guest, String> {
+public interface GuestRepository extends JpaRepository<Guest, Long> {
     @Query(value = "SELECT * FROM GUEST_VIEW", nativeQuery = true)
     List<Guest> getAllGuests();
 

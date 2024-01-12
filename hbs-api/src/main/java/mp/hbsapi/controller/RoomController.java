@@ -1,7 +1,9 @@
 package mp.hbsapi.controller;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.Room;
+import mp.hbsapi.entity.request.UpdateVacancyRequest;
 import mp.hbsapi.service.RoomService;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
@@ -31,5 +33,10 @@ public class RoomController {
     @GetMapping(path = "/available-rooms-by-type/{type}")
     public ResponseEntity<List<Integer>> getAvailableRoomsByType(@PathVariable char type) {
         return new ResponseEntity<>(roomService.getAvailableRoomsByType(type), HttpStatus.OK);
+    }
+
+    @PatchMapping(path = "/update-vacancy/{value}")
+    public ResponseEntity<String> updateRoomVacancy(@PathVariable int value, @RequestBody UpdateVacancyRequest rooms) {
+        return new ResponseEntity<>(roomService.updateRoomVacancy(value, rooms), HttpStatus.OK);
     }
 }
