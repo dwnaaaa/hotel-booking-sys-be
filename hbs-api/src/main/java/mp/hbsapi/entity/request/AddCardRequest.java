@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import mp.hbsapi.entity.Card;
 
 @RequiredArgsConstructor
 @Getter
@@ -17,4 +18,8 @@ public class AddCardRequest {
     private int cvv;
     @JsonProperty("expiration_date")
     private String expirationDate;
+
+    public Card mapToCard() {
+        return new Card(this.cardNumber, this.cvv, this.expirationDate);
+    }
 }

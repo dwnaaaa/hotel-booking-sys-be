@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import mp.hbsapi.entity.BillPayment;
 
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -18,5 +19,9 @@ public class AddBillPaymentRequest {
     @JsonProperty("payment_method")
     private char paymentMethod = 'N';
     @JsonProperty("card_id")
-    private String cardId = null;
+    private long cardId;
+
+    public BillPayment mapToBillPayment() {
+        return new BillPayment(this.brn, this.total, this.paymentMethod, this.cardId);
+    }
 }

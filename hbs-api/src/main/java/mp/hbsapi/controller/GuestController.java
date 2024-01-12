@@ -3,6 +3,7 @@ package mp.hbsapi.controller;
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.Guest;
 import mp.hbsapi.entity.request.AddGuestRequest;
+import mp.hbsapi.entity.request.GetGuestIdRequest;
 import mp.hbsapi.service.GuestService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,5 +36,10 @@ public class GuestController {
     public ResponseEntity<Void> addGuests(@RequestBody List<AddGuestRequest> guestsToAdd) {
         guestService.addAllGuests(guestsToAdd);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/id")
+    public ResponseEntity<Long> getGuestIdByName(@RequestBody GetGuestIdRequest request) {
+        return new ResponseEntity<>(guestService.getGuestIdByName(request), HttpStatus.OK);
     }
 }

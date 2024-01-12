@@ -12,5 +12,5 @@ public interface BillPaymentRepository extends JpaRepository<BillPayment, Long> 
 
     @Procedure(name = "BillPayment.addBillPayment")
     BillPayment addBillPayment(@Param("in_brn") String brn, @Param("in_total") int total,
-                               @Param("in_payment_method") char paymentMethod, @Param("in_card_id") String cardId);
+                               @Param("in_payment_method") char paymentMethod, @Param("in_card_id") long cardId);
 }

@@ -11,15 +11,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@NamedStoredProcedureQuery(name = "Card.addCard", procedureName = "ADD_CARD", parameters =  {
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_card_number", type = long.class),
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_cvv", type = int.class),
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_expiration_date", type = String.class)
-})
+//@NamedStoredProcedureQuery(name = "Card.addCard", procedureName = "ADD_CARD", parameters =  {
+//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_card_number", type = long.class),
+//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_cvv", type = int.class),
+//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_expiration_date", type = String.class)
+//})
 public class Card {
     @Id
-    private String cardId;
+    @GeneratedValue(generator = "card_seq")
+    @SequenceGenerator(name = "card_seq", sequenceName = "CARD_SEQ", allocationSize = 1)
+    private long cardId;
     private long cardNumber;
     private int cvv;
     private String expirationDate;
+
+    public Card(long cardNumber, int cvv, String expirationDate) {
+        this.cardNumber = cardNumber;
+        this.cvv = cvv;
+        this.expirationDate = expirationDate;
+    }
 }

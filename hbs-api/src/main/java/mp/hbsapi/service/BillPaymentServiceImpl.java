@@ -19,7 +19,8 @@ public class BillPaymentServiceImpl implements BillPaymentService {
 
     @Override
     public BillPayment addBillPayment(AddBillPaymentRequest billPaymentToAdd) {
-        return billPaymentRepository.addBillPayment(billPaymentToAdd.getBrn(), billPaymentToAdd.getTotal(),
-                billPaymentToAdd.getPaymentMethod(), billPaymentToAdd.getCardId());
+//        return billPaymentRepository.addBillPayment(billPaymentToAdd.getBrn(), billPaymentToAdd.getTotal(),
+//                billPaymentToAdd.getPaymentMethod(), billPaymentToAdd.getCardId());
+        return billPaymentRepository.addBillPayment(billPaymentToAdd.getBrn(), billPaymentToAdd.getTotal(), billPaymentToAdd.getPaymentMethod(), billPaymentToAdd.getCardId());
     }
 }

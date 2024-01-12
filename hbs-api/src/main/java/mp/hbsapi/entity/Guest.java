@@ -6,7 +6,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "GUEST")
+@Entity
+@Table(name = "GUEST")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -25,7 +26,9 @@ import lombok.Setter;
 //})
 public class Guest {
     @Id
-    private String guestId;
+    @GeneratedValue(generator = "guest_seq")
+    @SequenceGenerator(name = "guest_seq", sequenceName = "GUEST_SEQ", allocationSize = 1)
+    private long guestId;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -38,10 +41,9 @@ public class Guest {
     private String contactNo;
     private String emailAdd;
 
-    public Guest(String guestId, String firstName, String middleName, String lastName, String birthday, String street, String city,
+    public Guest(String firstName, String middleName, String lastName, String birthday, String street, String city,
                  String state, String zipCode, String contactNo, String emailAdd) {
 
-        this.guestId = guestId;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

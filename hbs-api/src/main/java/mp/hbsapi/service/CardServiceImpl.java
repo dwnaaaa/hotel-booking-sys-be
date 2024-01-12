@@ -24,8 +24,8 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public Card addCard(AddCardRequest cardToAdd) {
-            return cardRepository.addCard(cardToAdd.getCardNumber(), cardToAdd.getCvv(), cardToAdd.getExpirationDate());
-
+//            return cardRepository.addCard(cardToAdd.getCardNumber(), cardToAdd.getCvv(), cardToAdd.getExpirationDate());
+        return cardRepository.save(cardToAdd.mapToCard());
     }
 
 }
