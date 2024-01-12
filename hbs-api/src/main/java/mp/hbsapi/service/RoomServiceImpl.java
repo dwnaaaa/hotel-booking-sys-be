@@ -5,6 +5,7 @@ import mp.hbsapi.entity.Room;
 import mp.hbsapi.entity.request.UpdateVacancyRequest;
 import mp.hbsapi.repository.RoomRepository;
 import org.hibernate.sql.Update;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,9 +32,14 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public String updateRoomVacancy(int value, UpdateVacancyRequest rooms) {
-        for(int room : rooms.getRoomNumbers()) {
-            roomRepository.updateVacancies(value, room);
+    public String updateBookedBrn(String brn, UpdateVacancyRequest rooms) {
+
+        try {
+            for(int room : rooms.getRoomNumbers()) {
+                roomRepository.updateBookedBrn(brn, room);
+            }
+        } catch (JpaSystemException e) {
+            e.printStackTrace();
         }
         return "Vacancy changed";
     }

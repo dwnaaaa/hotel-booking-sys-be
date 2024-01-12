@@ -35,8 +35,8 @@ public class RoomController {
         return new ResponseEntity<>(roomService.getAvailableRoomsByType(type), HttpStatus.OK);
     }
 
-    @PatchMapping(path = "/update-vacancy/{value}")
-    public ResponseEntity<String> updateRoomVacancy(@PathVariable int value, @RequestBody UpdateVacancyRequest rooms) {
-        return new ResponseEntity<>(roomService.updateRoomVacancy(value, rooms), HttpStatus.OK);
+    @PatchMapping(path = "/update-booked-brn/{brn}")
+    public ResponseEntity<String> updateRoomVacancy(@PathVariable String brn, @RequestBody UpdateVacancyRequest rooms) {
+        return new ResponseEntity<>(roomService.updateBookedBrn(brn, rooms), HttpStatus.OK);
     }
 }

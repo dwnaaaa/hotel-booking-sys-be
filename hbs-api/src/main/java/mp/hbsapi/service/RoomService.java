@@ -12,5 +12,5 @@ public interface RoomService {
 
     List<Integer> getAvailableRoomsByType(char type);
 
-    String updateRoomVacancy(int value, UpdateVacancyRequest rooms);
+    String updateBookedBrn(String brn, UpdateVacancyRequest rooms);
 }
