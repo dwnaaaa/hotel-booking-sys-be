@@ -32,18 +32,14 @@ public class BRNServiceController {
     @GetMapping("/{serviceCode}/price")
     public ResponseEntity<Double> getPriceByServiceCode(@PathVariable int serviceCode) {
         Double price = brnServiceService.getPriceByServiceCode(serviceCode);
-        if (price != null) {
             return new ResponseEntity<>(price, HttpStatus.OK);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
     }
 
-    //get total cost sdjhfgdsjk
-//    @GetMapping("/totalPrice")
-//    public ResponseEntity<Double> getTotalPrice(
-//
-//    )
+    @GetMapping("/total-price/{brn}")
+    public ResponseEntity<Double> getTotalPriceByBRN(@PathVariable String brn) {
+        Double totalPrice = brnServiceService.getTotalPriceByBRN(brn);
+            return new ResponseEntity<>(totalPrice, HttpStatus.OK);
+    }
 
     @PostMapping("/addService")
     public ResponseEntity<BRNService> addBRNService(@RequestParam String brn,
