@@ -23,12 +23,43 @@ public class BRNServiceController {
         return new ResponseEntity<>(brnServiceService.getAllServices(), HttpStatus.OK);
     }
 
+    @GetMapping("/by-brn/{brn}/{serviceCode}")
+    public ResponseEntity<List<BRNService>> getServicesByBRN(@PathVariable String brn, @PathVariable int serviceCode) {
+        List<BRNService> services = brnServiceService.getServicesByBRN(brn, serviceCode);
+        return new ResponseEntity<>(services, HttpStatus.OK);
+    }
+
+    @GetMapping("/{serviceCode}/price")
+    public ResponseEntity<Double> getPriceByServiceCode(@PathVariable int serviceCode) {
+        Double price = brnServiceService.getPriceByServiceCode(serviceCode);
+        if (price != null) {
+            return new ResponseEntity<>(price, HttpStatus.OK);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    //get total cost sdjhfgdsjk
+//    @GetMapping("/totalPrice")
+//    public ResponseEntity<Double> getTotalPrice(
+//
+//    )
+
+    @PostMapping("/addService")
+    public ResponseEntity<BRNService> addBRNService(@RequestParam String brn,
+                                                    @RequestParam int serviceCode,
+                                                    @RequestParam int roomNumber,
+                                                    @RequestParam int quantity) {
+        return new ResponseEntity<>(brnServiceService.addBRNService(brn, serviceCode, roomNumber, quantity), HttpStatus.CREATED);
+    }
+
     //Add record in BRN_SERVICES for snacks taken from room bar w/ room number (POST)
     @PostMapping("/addSnacks")
     public ResponseEntity<String> addSnackRecord(@RequestParam String brn,
                                                  @RequestParam int serviceCode,
-                                                 @RequestParam int roomNumber) {
-        brnServiceService.addSnackRecord(brn, serviceCode, roomNumber);
+                                                 @RequestParam int roomNumber,
+                                                 @RequestParam int quantity) {
+        brnServiceService.addSnackRecord(brn, serviceCode, roomNumber, quantity);
         return new ResponseEntity<>("Snack record added successfully", HttpStatus.CREATED);
     }
 
@@ -36,8 +67,9 @@ public class BRNServiceController {
     @PostMapping("/addCleaning")
     public ResponseEntity<String> addCleaningRecord(@RequestParam String brn,
                                                  @RequestParam int serviceCode,
-                                                 @RequestParam int roomNumber) {
-        brnServiceService.addCleaningRecord(brn, serviceCode, roomNumber);
+                                                 @RequestParam int roomNumber,
+                                                    @RequestParam int quantity) {
+        brnServiceService.addCleaningRecord(brn, serviceCode, roomNumber, quantity);
         return new ResponseEntity<>("Cleaning record added successfully", HttpStatus.CREATED);
     }
 
@@ -45,15 +77,12 @@ public class BRNServiceController {
     @PostMapping("/addDamage")
     public ResponseEntity<String> addDamageRecord(@RequestParam String brn,
                                                     @RequestParam int serviceCode,
-                                                    @RequestParam int roomNumber) {
-        brnServiceService.addDamageRecord(brn, serviceCode, roomNumber);
+                                                    @RequestParam int roomNumber,
+                                                  @RequestParam int quantity) {
+        brnServiceService.addDamageRecord(brn, serviceCode, roomNumber, quantity);
         return new ResponseEntity<>("Damage record added successfully", HttpStatus.CREATED);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<BRNService> addBRNService(@RequestParam String brn,
-                                                    @RequestParam int serviceCode,
-                                                    @RequestParam int roomNumber) {
-        return new ResponseEntity<>(brnServiceService.addBRNService(brn, serviceCode, roomNumber), HttpStatus.CREATED);
-    }
+
+
 }

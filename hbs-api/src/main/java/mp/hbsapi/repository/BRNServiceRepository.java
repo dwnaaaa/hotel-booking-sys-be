@@ -13,4 +13,6 @@ import java.util.List;
 @Repository
 public interface BRNServiceRepository extends JpaRepository<BRNService, BRNServiceKey> {
 
+    List<BRNService> findAllById(BRNServiceKey id);
+    //BRNService findByServiceCode(int serviceCode);
 }
