@@ -29,4 +29,9 @@ public class RoomController {
     public ResponseEntity<Integer>  getAllRooms(@PathVariable char type) {
         return new ResponseEntity<>(roomService.getRoomCountByType(type), HttpStatus.OK);
     }
+
+    @GetMapping(path = "/available-rooms-by-type/{type}")
+    public ResponseEntity<List<Integer>> getAvailableRoomsByType(@PathVariable char type) {
+        return new ResponseEntity<>(roomService.getAvailableRoomsByType(type), HttpStatus.OK);
+    }
 }

@@ -8,4 +8,6 @@ public interface RoomService {
     List<Room> getAllRooms();
 
     int getRoomCountByType(char type);
+
+    List<Integer> getAvailableRoomsByType(char type);
 }

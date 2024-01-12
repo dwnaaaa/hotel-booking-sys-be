@@ -16,4 +16,5 @@ public class Room {
     @Id
     private int roomNumber;
     private char roomType;
+    private int isBooked;
 }

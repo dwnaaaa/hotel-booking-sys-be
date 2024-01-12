@@ -13,4 +13,7 @@ public interface RoomRepository extends JpaRepository<Room, Integer> {
 
     @Query(value = "SELECT COUNT(*) FROM ROOM WHERE ROOM_TYPE=:type", nativeQuery = true)
     int getRoomCountByType(@Param("type") char type);
+
+    @Query(value = "SELECT ROOM_NUMBER FROM ROOM WHERE IS_BOOKED = 0", nativeQuery = true)
+    List<Integer> getAvailableRoomsByType(char type);
 }

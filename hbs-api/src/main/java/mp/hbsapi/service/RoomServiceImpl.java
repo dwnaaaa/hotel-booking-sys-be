@@ -22,4 +22,11 @@ public class RoomServiceImpl implements RoomService {
     public int getRoomCountByType(char type) {
         return roomRepository.getRoomCountByType(type);
     }
+
+    @Override
+    public List<Integer> getAvailableRoomsByType(char type) {
+        return roomRepository.getAvailableRoomsByType(type);
+    }
+
+
 }
