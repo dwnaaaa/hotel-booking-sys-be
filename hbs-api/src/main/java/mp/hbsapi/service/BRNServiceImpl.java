@@ -59,4 +59,14 @@ public class BRNServiceImpl implements BRNServiceService {
         BRNService service = brnServiceRepository.findById(id).orElse(null);
         return (service != null) ? service.getPrice() : null;
     }
+
+    @Override
+    public Double getTotalPriceByBRN(String brn) {
+        List<BRNService> services = brnServiceRepository.findByIdBrn(brn);
+        if (services != null && !services.isEmpty()) {
+            double totalPrice = services.stream().mapToDouble(BRNService::getPrice).sum();
+            return totalPrice;
+        }
+        return null;
+    }
 }
