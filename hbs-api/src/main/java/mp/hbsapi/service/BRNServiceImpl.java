@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.BRNService;
 import mp.hbsapi.entity.key.BRNServiceKey;
 import mp.hbsapi.repository.BRNServiceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,36 +13,50 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BRNServiceImpl implements BRNServiceService {
 
+    @Autowired
     private final BRNServiceRepository brnServiceRepository;
 
     @Override
     public List<BRNService> getAllServices() { return brnServiceRepository.findAll(); }
 
     @Override
-    public void addSnackRecord(String brn, int serviceCode, int roomNumber) {
+    public void addSnackRecord(String brn, int serviceCode, int roomNumber, int quantity) {
         BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
-        BRNService brnService = new BRNService(id, roomNumber);
+        BRNService brnService = new BRNService(id, roomNumber, quantity);
         brnServiceRepository.save(brnService);
     }
 
     @Override
-    public void addCleaningRecord(String brn, int serviceCode, int roomNumber){
+    public void addCleaningRecord(String brn, int serviceCode, int roomNumber, int quantity){
         BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
-        BRNService brnService = new BRNService(id, roomNumber);
+        BRNService brnService = new BRNService(id, roomNumber, quantity);
         brnServiceRepository.save(brnService);
     }
 
     @Override
-    public void addDamageRecord(String brn, int serviceCode, int roomNumber){
+    public void addDamageRecord(String brn, int serviceCode, int roomNumber, int quantity){
         BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
-        BRNService brnService = new BRNService(id, roomNumber);
+        BRNService brnService = new BRNService(id, roomNumber, quantity);
         brnServiceRepository.save(brnService);
     }
 
     @Override
-    public BRNService addBRNService(String brn, int serviceCode, int roomNumber) {
+    public BRNService addBRNService(String brn, int serviceCode, int roomNumber, int quantity) {
         BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
-        BRNService brnService = new BRNService(id, roomNumber);
+        BRNService brnService = new BRNService(id, roomNumber, quantity);
         return brnServiceRepository.save(brnService);
+    }
+
+    @Override
+    public List<BRNService> getServicesByBRN(String brn, int serviceCode) {
+        BRNServiceKey id = new BRNServiceKey(brn, serviceCode);
+        return brnServiceRepository.findAllById(id);
+    }
+
+    @Override
+    public Double getPriceByServiceCode(int serviceCode) {
+        BRNServiceKey id = new BRNServiceKey(null, serviceCode); // Assuming BRN is not needed for this query
+        BRNService service = brnServiceRepository.findById(id).orElse(null);
+        return (service != null) ? service.getPrice() : null;
     }
 }
