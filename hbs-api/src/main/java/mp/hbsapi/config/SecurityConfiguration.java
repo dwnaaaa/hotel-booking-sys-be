@@ -38,7 +38,7 @@ public class SecurityConfiguration {
                                         "/brn-guest/**",
                                         "/brn-room/**",
                                         "/brn-service/**",
-                                        "/card/**",
+                                        "/cards/**",
                                         "/guest/**",
                                         "/room/**",
                                         "/room-type/**",

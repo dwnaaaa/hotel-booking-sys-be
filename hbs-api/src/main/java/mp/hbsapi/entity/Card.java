@@ -21,11 +21,11 @@ public class Card {
     @GeneratedValue(generator = "card_seq")
     @SequenceGenerator(name = "card_seq", sequenceName = "CARD_SEQ", allocationSize = 1)
     private long cardId;
-    private long cardNumber;
-    private int cvv;
+    private String cardNumber;
+    private String cvv;
     private String expirationDate;
 
-    public Card(long cardNumber, int cvv, String expirationDate) {
+    public Card(String cardNumber, String cvv, String expirationDate) {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.expirationDate = expirationDate;

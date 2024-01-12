@@ -13,9 +13,9 @@ public class AddCardRequest {
 //    @JsonProperty("card_id")
 //    private String cardId;
     @JsonProperty("card_number")
-    private long cardNumber;
+    private String cardNumber;
     @JsonProperty("cvv")
-    private int cvv;
+    private String cvv;
     @JsonProperty("expiration_date")
     private String expirationDate;
 
