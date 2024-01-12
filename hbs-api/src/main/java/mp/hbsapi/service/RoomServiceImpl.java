@@ -33,10 +33,11 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public String updateBookedBrn(String brn, UpdateVacancyRequest rooms) {
-
+        System.out.println(rooms.getRoomNumbers());
         try {
             for(int room : rooms.getRoomNumbers()) {
                 roomRepository.updateBookedBrn(brn, room);
+                System.out.println(room);
             }
         } catch (JpaSystemException e) {
             e.printStackTrace();

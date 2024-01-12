@@ -13,4 +13,5 @@ public interface RoomService {
     List<Integer> getAvailableRoomsByType(char type);
 
     String updateBookedBrn(String brn, UpdateVacancyRequest rooms);
+
 }

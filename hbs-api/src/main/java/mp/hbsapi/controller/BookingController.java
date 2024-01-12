@@ -27,4 +27,13 @@ public class BookingController {
     public ResponseEntity<BRN> addBooking(@RequestBody AddBookingRequest bookingToAdd) {
         return new ResponseEntity<>(bookingService.addBooking(bookingToAdd), HttpStatus.CREATED);
     }
+
+    @GetMapping(path = "/lastbrn")
+    public ResponseEntity<BRN> getLastBooking() {
+        List<BRN> allBookings = bookingService.getAllBookings();
+
+        BRN lastBooking = allBookings.get(allBookings.size() - 1);
+
+        return new ResponseEntity<>(lastBooking, HttpStatus.OK);
+    }
 }
