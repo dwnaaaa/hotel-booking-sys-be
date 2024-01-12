@@ -38,7 +38,7 @@ public class GuestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/id")
+    @PostMapping("/id")
     public ResponseEntity<Long> getGuestIdByName(@RequestBody GetGuestIdRequest request) {
         return new ResponseEntity<>(guestService.getGuestIdByName(request), HttpStatus.OK);
     }
