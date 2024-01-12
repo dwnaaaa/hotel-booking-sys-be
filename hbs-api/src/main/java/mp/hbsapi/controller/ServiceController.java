@@ -1,5 +1,6 @@
 package mp.hbsapi.controller;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.Service;
 import mp.hbsapi.service.ServicesService;
@@ -20,5 +21,10 @@ public class ServiceController {
     @GetMapping(path = "/{employeeType}")
     public ResponseEntity<List<Service>> getServicesByEmployeeType(@PathVariable char employeeType) {
         return new ResponseEntity<>(servicesService.getServicesByEmployeeType(employeeType), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/price/{code}")
+    public ResponseEntity<Integer> getPriceByServiceCode(@PathVariable int code) {
+        return new ResponseEntity<>(servicesService.getPriceByServiceCode(code), HttpStatus.OK);
     }
 }
