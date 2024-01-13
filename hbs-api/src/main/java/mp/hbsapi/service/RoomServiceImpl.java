@@ -5,6 +5,7 @@ import mp.hbsapi.entity.Room;
 import mp.hbsapi.entity.request.UpdateVacancyRequest;
 import mp.hbsapi.repository.RoomRepository;
 import org.hibernate.sql.Update;
+import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
@@ -39,11 +40,9 @@ public class RoomServiceImpl implements RoomService {
                 roomRepository.updateBookedBrn(brn, room);
                 System.out.println(room);
             }
-        } catch (JpaSystemException e) {
+        } catch(InvalidDataAccessResourceUsageException e) {
             e.printStackTrace();
-        }
-        return "Vacancy changed";
+
+        } return "Vacancy changed";
     }
-
-
 }

@@ -35,6 +35,7 @@ public class RoomController {
         return new ResponseEntity<>(roomService.getAvailableRoomsByType(type), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PatchMapping(path = "/update-booked-brn/{brn}")
     public ResponseEntity<String> updateRoomVacancy(@PathVariable String brn, @RequestBody UpdateVacancyRequest rooms) {
         return new ResponseEntity<>(roomService.updateBookedBrn(brn, rooms), HttpStatus.OK);
