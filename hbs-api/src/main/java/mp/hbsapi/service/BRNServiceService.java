@@ -23,7 +23,7 @@ public interface BRNServiceService {
 
     List<BRNService> getServicesByRoomNumber(int roomNumber);
 
-    String getBRNByBRNService(String brn);
+    public List<String> getBRNsByBRNService(String brn);
 
     Integer findRoomNumber(String brn, Integer serviceCode);
 

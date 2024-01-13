@@ -24,9 +24,9 @@ public class BRNServiceController {
     }
 
     @GetMapping("/get-brn-by-brn-service")
-    public ResponseEntity<String> getBRNByBRNService(@RequestParam String brn) {
-        String brnResult = brnServiceService.getBRNByBRNService(brn);
-        return new ResponseEntity<>(brnResult, HttpStatus.OK);
+    public ResponseEntity<List<String>> getBRNsByBRNService(@RequestParam String brn) {
+        List<String> brns = brnServiceService.getBRNsByBRNService(brn);
+        return new ResponseEntity<>(brns, HttpStatus.OK);
     }
 
     @GetMapping("/get-room-number")
