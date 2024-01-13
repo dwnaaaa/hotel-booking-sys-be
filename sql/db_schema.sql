@@ -11,12 +11,12 @@ CREATE TABLE GUEST (
     MIDDLE_NAME         VARCHAR2(20) NOT NULL,
     LAST_NAME           VARCHAR2(20) NOT NULL,
     BIRTHDAY            DATE NOT NULL,
-    STREET              VARCHAR2(20) NOT NULL,
-    CITY                VARCHAR2(20) NOT NULL,
-    STATE               VARCHAR2(20) NOT NULL,
-    ZIP_CODE            VARCHAR2(4) NOT NULL,
-    CONTACT_NO          VARCHAR2(11) NOT NULL,
-    EMAIL_ADD           VARCHAR2(30) NOT NULL,
+    STREET              VARCHAR2(20),
+    CITY                VARCHAR2(20),
+    STATE               VARCHAR2(20),
+    ZIP_CODE            VARCHAR2(4),
+    CONTACT_NO          VARCHAR2(11),
+    EMAIL_ADD           VARCHAR2(30),
     CONSTRAINT GUEST_PK PRIMARY KEY (GUEST_ID)
 );
 
