@@ -30,5 +30,15 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.getBRNByBrnIs(brn);
     }
 
+    @Override
+    public void checkIn(String brn) {
+        bookingRepository.checkIn(brn);
+    }
+
+    @Override
+    public void checkOut(String brn) {
+        bookingRepository.checkOut(brn);
+    }
+
 
 }

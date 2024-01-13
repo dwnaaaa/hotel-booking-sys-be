@@ -10,4 +10,8 @@ public interface BookingService {
     BRN addBooking(AddBookingRequest bookingToAdd);
 
     BRN getBookingByBRN(String brn);
+
+    void checkIn(String brn);
+
+    void checkOut(String brn);
 }
