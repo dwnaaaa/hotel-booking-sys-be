@@ -27,4 +27,10 @@ public class ServiceController {
     public ResponseEntity<Integer> getPriceByServiceCode(@PathVariable int code) {
         return new ResponseEntity<>(servicesService.getPriceByServiceCode(code), HttpStatus.OK);
     }
+
+    @GetMapping(path = "/byType/{employeeType}")
+    public ResponseEntity<List<Service>> getServicesByType(@PathVariable String employeeType) {
+        List<Service> services = servicesService.getServicesByType(employeeType);
+        return new ResponseEntity<>(services, HttpStatus.OK);
+    }
 }
