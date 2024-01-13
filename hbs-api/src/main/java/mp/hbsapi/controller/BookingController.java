@@ -41,4 +41,16 @@ public class BookingController {
     public ResponseEntity<BRN> getBookingByBRN(@PathVariable String brn) {
         return new ResponseEntity<>(bookingService.getBookingByBRN(brn), HttpStatus.OK);
     }
+
+    @PatchMapping("/check-in/{brn}")
+    public ResponseEntity<String> checkIn(@PathVariable String brn) {
+        bookingService.checkIn(brn);
+        return new ResponseEntity<>("Checked in", HttpStatus.OK);
+    }
+
+    @PatchMapping("/check-out/{brn}")
+    public ResponseEntity<String> checkOut(@PathVariable String brn) {
+        bookingService.checkOut(brn);
+        return new ResponseEntity<>("Checked out", HttpStatus.OK);
+    }
 }
