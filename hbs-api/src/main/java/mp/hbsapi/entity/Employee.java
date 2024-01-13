@@ -1,7 +1,11 @@
 package mp.hbsapi.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import mp.hbsapi.entity.EmployeeType;
 
 @Entity(name = "EMPLOYEE")
 @RequiredArgsConstructor
@@ -16,6 +20,7 @@ public class Employee {
     private String firstName;
     private String middleName;
     private String lastName;
+    private double salary; // Change the data type to double
     @OneToOne
     @JoinColumn(name = "EMPLOYEE_TYPE")
     private EmployeeType employeeType;
