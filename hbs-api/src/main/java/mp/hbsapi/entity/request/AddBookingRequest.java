@@ -25,4 +25,6 @@ public class AddBookingRequest {
     private char roomType;
     @JsonProperty("no_of_rooms")
     private char noOfRooms;
+    @JsonProperty("is_checked_in")
+    private int isCheckedIn;
 }

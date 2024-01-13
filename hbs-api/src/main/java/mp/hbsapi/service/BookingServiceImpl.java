@@ -22,7 +22,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public BRN addBooking(AddBookingRequest bookingToAdd) {
         return bookingRepository.addBooking(bookingToAdd.getPrimaryGuestId(), bookingToAdd.getBookingDate(), bookingToAdd.getCheckInDate(),
-                bookingToAdd.getCheckOutDate(), bookingToAdd.getRoomType(), bookingToAdd.getNoOfRooms());
+                bookingToAdd.getCheckOutDate(), bookingToAdd.getRoomType(), bookingToAdd.getNoOfRooms(), bookingToAdd.getIsCheckedIn());
     }
 
     @Override

@@ -118,6 +118,7 @@ CREATE TABLE BRN (
     CHECK_OUT_DATE      DATE,
     ROOM_TYPE           CHAR(1) NOT NULL,
     NO_OF_ROOMS         NUMBER(2,0) NOT NULL,
+    IS_CHECKED_IN       NUMBER(1,0) DEFAULT 0,
     CONSTRAINT BRN_PK1 PRIMARY KEY (BRN),
     CONSTRAINT BRN_FK1 FOREIGN KEY (ROOM_TYPE) REFERENCES ROOM_TYPE (ROOM_TYPE),
     CONSTRAINT BRN_FK2 FOREIGN KEY (PRIMARY_GUEST_ID) REFERENCES GUEST (GUEST_ID)
@@ -216,14 +217,15 @@ CREATE OR REPLACE PROCEDURE add_booking (
     in_check_in_date VARCHAR2,
     in_check_out_date VARCHAR2,
     in_room_type VARCHAR2,
-    in_no_of_rooms NUMBER
+    in_no_of_rooms NUMBER,
+    in_is_checked_in NUMBER
 ) IS
     v_generated_brn VARCHAR2(6);
 BEGIN
     SELECT GENERATE_BRN() INTO v_generated_brn FROM DUAL;
-    INSERT INTO BRN (BRN,PRIMARY_GUEST_ID, BOOKING_DATE, CHECK_IN_DATE, CHECK_OUT_DATE, ROOM_TYPE, NO_OF_ROOMS)
+    INSERT INTO BRN (BRN,PRIMARY_GUEST_ID, BOOKING_DATE, CHECK_IN_DATE, CHECK_OUT_DATE, ROOM_TYPE, NO_OF_ROOMS, IS_CHECKED_IN)
     VALUES (v_generated_brn, in_primary_guest_id, CONVERT_TO_DATE(in_booking_date),
-            CONVERT_TO_DATE(in_check_in_date), CONVERT_TO_DATE(in_check_out_date), in_room_type, in_no_of_rooms);
+            CONVERT_TO_DATE(in_check_in_date), CONVERT_TO_DATE(in_check_out_date), in_room_type, in_no_of_rooms, in_is_checked_in);
 END;
 
 -- CREATE OR REPLACE FUNCTION generate_guest_id RETURN VARCHAR2 IS

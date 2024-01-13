@@ -20,6 +20,7 @@ import java.util.Date;
         @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_check_out_date", type = String.class),
         @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_room_type", type = Character.class),
         @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_no_of_rooms", type = Integer.class),
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_is_checked_in", type = Integer.class),
 })
 public class BRN {
     @Id
@@ -30,4 +31,5 @@ public class BRN {
     private Date checkOutDate = null;
     private char roomType;
     private int noOfRooms;
+    private int isCheckedIn;
 }
