@@ -13,5 +13,4 @@ public class EmployeeType {
     @Id
     private char employeeType;
     private String employeeTypeName;
-    private int salary;
 }
