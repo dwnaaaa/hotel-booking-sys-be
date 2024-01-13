@@ -71,8 +71,8 @@ public class BRNServiceImpl implements BRNServiceService {
     }
 
     @Override
-    public String getBRNByBRNService(String brn) {
-        return brnServiceRepository.getBRNByBRNService(brn);
+    public List<String> getBRNsByBRNService(String brn) {
+        return brnServiceRepository.findBRNsByBRNService(brn);
     }
 
     @Override
