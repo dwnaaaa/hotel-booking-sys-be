@@ -17,7 +17,15 @@ public interface BRNServiceService {
 
     List<BRNService> getServicesByBRN(String brn, int serviceCode);
 
-    Double getPriceByServiceCode(int serviceCode);
+    //Double getPriceByServiceCode(int serviceCode);
 
     Double getTotalPriceByBRN(String brn);
+
+    List<BRNService> getServicesByRoomNumber(int roomNumber);
+
+    String getBRNByBRNService(String brn);
+
+    Integer findRoomNumber(String brn, Integer serviceCode);
+
+
 }
