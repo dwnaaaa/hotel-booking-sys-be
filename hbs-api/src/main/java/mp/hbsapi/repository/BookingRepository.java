@@ -11,4 +11,6 @@ public interface BookingRepository extends JpaRepository<BRN, String> {
     @Procedure(name = "BRN.addBooking")
     BRN addBooking(@Param("in_primary_guest_id") String primaryGuestId, @Param("in_booking_date") String bookingDate, @Param("in_check_in_date") String checkInDate,
                    @Param("in_check_out_date") String checkOutDate, @Param("in_room_type") char roomType, @Param("in_no_of_rooms") int noOfRooms);
+
+    BRN getBRNByBrnIs(String brn);
 }

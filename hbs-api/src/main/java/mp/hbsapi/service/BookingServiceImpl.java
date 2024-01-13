@@ -24,4 +24,11 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.addBooking(bookingToAdd.getPrimaryGuestId(), bookingToAdd.getBookingDate(), bookingToAdd.getCheckInDate(),
                 bookingToAdd.getCheckOutDate(), bookingToAdd.getRoomType(), bookingToAdd.getNoOfRooms());
     }
+
+    @Override
+    public BRN getBookingByBRN(String brn) {
+        return bookingRepository.getBRNByBrnIs(brn);
+    }
+
+
 }

@@ -36,4 +36,9 @@ public class BookingController {
 
         return new ResponseEntity<>(lastBooking, HttpStatus.OK);
     }
+
+    @GetMapping(path = "/{brn}")
+    public ResponseEntity<BRN> getBookingByBRN(@PathVariable String brn) {
+        return new ResponseEntity<>(bookingService.getBookingByBRN(brn), HttpStatus.OK);
+    }
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface BookingService {
     List<BRN> getAllBookings();
     BRN addBooking(AddBookingRequest bookingToAdd);
+
+    BRN getBookingByBRN(String brn);
 }
