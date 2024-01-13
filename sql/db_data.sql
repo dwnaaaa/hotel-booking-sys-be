@@ -86,4 +86,144 @@ PROMPT INSERTING INTO CARD...
 INSERT INTO CARD (CARD_ID, CARD_NUMBER, CVV, EXPIRATION_DATE)
 VALUES (CARD_SEQ.nextval, '1234567891234432', '432', TO_DATE('2024-12', 'YYYY-MM'));
 
+PROMPT INSERTING INTO SERVICES...
+-- INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+-- VALUES (EMPLOYEE_SEQ.nextval, 'JAMES', 'DELA CRUZ', 'SABLAY', 'F');
+-- Inserting data for 'services' with EMPLOYEE_TYPE as 'C'
+
+--Housekeeping
+-- Inserting data for 'services'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('1001', 'Room Cleaning', 'Professional room cleaning services', 'H', 150);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('1002', 'Laundry Services', 'Convenient laundry services', 'H', 100);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('1003', 'Shoe Polishing', 'Expert shoe polishing for a polished look', 'H', 50);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('1004', 'Packing Services', 'Efficient packing services for travel', 'H', 75);
+
+-- Inserting data for 'barItems'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2001', 'Chips', 'Savory chips for your snack cravings', 'H', 20);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2002', 'Nuts', 'Assorted nuts for a healthy snack', 'H', 30);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2003', 'Chocolate', 'Delicious chocolate treats for sweet cravings', 'H', 25);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2004', 'Candy', 'Colorful candies for a delightful treat', 'H', 15);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2005', 'Cookies', 'Classic cookies for a delightful snack', 'H', 18);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2006', 'Dried Fruit', 'Nutrient-packed dried fruits for a quick energy boost', 'H', 35);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2007', 'Granola Bars', 'Wholesome granola bars for a healthy snack', 'H', 28);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2008', 'Crackers', 'Crunchy crackers for a light bite', 'H', 22);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2009', 'Popcorn', 'Buttery popcorn for a movie night treat', 'H', 12);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('2010', 'Cereal', 'Variety of cereals for a quick and tasty breakfast', 'H', 30);
+
+-- Kitchen
+-- Inserting data for 'services'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('3001', 'Catering Services', 'Professional catering services for events', 'K', 1000);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('3002', 'Personal Chef', 'Hire a personal chef for a customized culinary experience', 'K', 800);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('3003', 'Custom Meal Plan', 'Tailored meal plans based on your preferences', 'K', 500);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('3004', 'Interactive Culinary', 'Engaging culinary experiences with expert chefs', 'K', 1200);
+
+-- Inserting data for 'inHouseMeals'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('4001', 'Breakfast', 'Delicious in-house breakfast options', 'K', 50);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('4002', 'Lunch', 'Enjoy a variety of in-house lunch options', 'K', 75);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('4003', 'Dinner', 'Delight in-house dinner options prepared for you', 'K', 100);
+
+-- Inserting data for 'alcohols'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('5001', 'Beers', 'Assorted beers for your enjoyment', 'K', 30);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('5002', 'Wines', 'Select wines to complement your meal', 'K', 50);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('5003', 'Spirits', 'A collection of spirits for your preference', 'K', 40);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('5004', 'Cocktails', 'Expertly crafted cocktails for a special occasion', 'K', 60);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('5005', 'Liqueurs', 'Indulge in a variety of liqueurs', 'K', 45);
+
+-- Inserting data for 'foods'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6001', 'Appetizers', 'Delicious appetizers to start your meal', 'K', 25);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6002', 'Salads', 'Fresh and flavorful salads for a healthy option', 'K', 30);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6003', 'Soups', 'Comforting soups to warm your palate', 'K', 20);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6004', 'Meat Dishes', 'Savor a variety of meat dishes', 'K', 40);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6005', 'Seafood', 'Fresh and delectable seafood options', 'K', 35);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6006', 'Vegetarian Options', 'Vegetarian delights for plant-based preferences', 'K', 30);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6007', 'Sides', 'Complement your meal with tasty side dishes', 'K', 15);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6008', 'Desserts', 'Indulge in sweet treats for a delightful ending', 'K', 25);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('6009', 'Snacks', 'Quick and tasty snacks for anytime enjoyment', 'K', 18);
+
+-- Inserting data for 'beverages'
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7001', 'Coffee', 'Rich and aromatic coffee options', 'K', 10);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7002', 'Tea', 'Variety of teas for a soothing experience', 'K', 8);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7003', 'Juices', 'Fresh and refreshing juice selections', 'K', 15);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7004', 'Soft Drinks', 'Assorted soft drinks for your preference', 'K', 12);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7005', 'Water', 'Bottled water for hydration', 'K', 5);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7006', 'Energy Drinks', 'Boost your energy with a selection of energy drinks', 'K', 20);
+
+INSERT INTO SERVICES (SERVICE_CODE, SERVICE_NAME, DESCRIPTION, EMPLOYEE_TYPE, PRICE)
+VALUES ('7007', 'Milk', 'Enjoy milk options for a wholesome beverage', 'K', 15);
+
 COMMIT;
