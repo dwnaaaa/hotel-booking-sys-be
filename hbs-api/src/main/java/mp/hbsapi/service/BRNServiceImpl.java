@@ -53,20 +53,31 @@ public class BRNServiceImpl implements BRNServiceService {
         return brnServiceRepository.findAllById(id);
     }
 
-    @Override
+    /*@Override
     public Double getPriceByServiceCode(int serviceCode) {
         BRNServiceKey id = new BRNServiceKey(null, serviceCode); // Assuming BRN is not needed for this query
         BRNService service = brnServiceRepository.findById(id).orElse(null);
         return (service != null) ? service.getPrice() : null;
-    }
+    }*/
 
     @Override
     public Double getTotalPriceByBRN(String brn) {
-        List<BRNService> services = brnServiceRepository.findByIdBrn(brn);
-        if (services != null && !services.isEmpty()) {
-            double totalPrice = services.stream().mapToDouble(BRNService::getPrice).sum();
-            return totalPrice;
-        }
-        return null;
+        return brnServiceRepository.calculateTotalPriceByBRN(brn);
     }
+
+    @Override
+    public List<BRNService> getServicesByRoomNumber(int roomNumber) {
+        return brnServiceRepository.findByRoomNumber(roomNumber);
+    }
+
+    @Override
+    public String getBRNByBRNService(String brn) {
+        return brnServiceRepository.getBRNByBRNService(brn);
+    }
+
+    @Override
+    public Integer findRoomNumber(String brn, Integer serviceCode) {
+        return brnServiceRepository.findRoomNumber(brn, serviceCode);
+    }
+
 }

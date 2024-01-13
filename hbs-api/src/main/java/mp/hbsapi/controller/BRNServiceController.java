@@ -23,18 +23,30 @@ public class BRNServiceController {
         return new ResponseEntity<>(brnServiceService.getAllServices(), HttpStatus.OK);
     }
 
+    @GetMapping("/get-brn-by-brn-service")
+    public ResponseEntity<String> getBRNByBRNService(@RequestParam String brn) {
+        String brnResult = brnServiceService.getBRNByBRNService(brn);
+        return new ResponseEntity<>(brnResult, HttpStatus.OK);
+    }
+
+    @GetMapping("/get-room-number")
+    public ResponseEntity<Integer> getRoomNumber(@RequestParam String brn, @RequestParam Integer serviceCode) {
+        Integer roomNumber = brnServiceService.findRoomNumber(brn, serviceCode);
+        return new ResponseEntity<>(roomNumber, HttpStatus.OK);
+    }
+
     @GetMapping("/by-brn/{brn}/{serviceCode}")
     public ResponseEntity<List<BRNService>> getServicesByBRN(@PathVariable String brn, @PathVariable int serviceCode) {
         List<BRNService> services = brnServiceService.getServicesByBRN(brn, serviceCode);
         return new ResponseEntity<>(services, HttpStatus.OK);
     }
 
-    @GetMapping("/{serviceCode}/price")
+    /*@GetMapping("/{serviceCode}/price")
     public ResponseEntity<Double> getPriceByServiceCode(@PathVariable int serviceCode) {
         Double price = brnServiceService.getPriceByServiceCode(serviceCode);
             return new ResponseEntity<>(price, HttpStatus.OK);
     }
-
+*/
     @GetMapping("/total-price/{brn}")
     public ResponseEntity<Double> getTotalPriceByBRN(@PathVariable String brn) {
         Double totalPrice = brnServiceService.getTotalPriceByBRN(brn);
