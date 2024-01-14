@@ -13,18 +13,13 @@ public class ServicesServiceImpl implements ServicesService{
     private final ServiceRepository serviceRepository;
 
     @Override
-    public List<mp.hbsapi.entity.Service> getServicesByEmployeeType(char employeeType) {
-        return serviceRepository.getServicesByEmployeeTypeEquals(employeeType);
-    }
-
-    @Override
     public int getPriceByServiceCode(int serviceCode) {
         return serviceRepository.getPriceByServiceCode(serviceCode);
     }
 
     @Override
-    public List<mp.hbsapi.entity.Service> getServicesByType(String employeeType) {
-            return serviceRepository.findByType(employeeType);
+    public List<mp.hbsapi.entity.Service> getServicesByType(char employeeType) {
+            return serviceRepository.findByEmployeeType(employeeType);
     }
 
 

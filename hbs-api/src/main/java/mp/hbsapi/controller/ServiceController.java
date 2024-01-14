@@ -18,18 +18,13 @@ public class ServiceController {
 
     private final ServicesService servicesService;
 
-    @GetMapping(path = "/{employeeType}")
-    public ResponseEntity<List<Service>> getServicesByEmployeeType(@PathVariable char employeeType) {
-        return new ResponseEntity<>(servicesService.getServicesByEmployeeType(employeeType), HttpStatus.OK);
-    }
-
     @GetMapping(path = "/price/{code}")
     public ResponseEntity<Integer> getPriceByServiceCode(@PathVariable int code) {
         return new ResponseEntity<>(servicesService.getPriceByServiceCode(code), HttpStatus.OK);
     }
 
     @GetMapping(path = "/byType/{employeeType}")
-    public ResponseEntity<List<Service>> getServicesByType(@PathVariable String employeeType) {
+    public ResponseEntity<List<Service>> getServicesByType(@PathVariable char employeeType) {
         List<Service> services = servicesService.getServicesByType(employeeType);
         return new ResponseEntity<>(services, HttpStatus.OK);
     }
