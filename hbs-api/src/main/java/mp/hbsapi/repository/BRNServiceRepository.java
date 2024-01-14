@@ -24,7 +24,7 @@ public interface BRNServiceRepository extends JpaRepository<BRNService, BRNServi
     List<BRNService> findByRoomNumber(int roomNumber);
 
     @Query("SELECT s.id.brn FROM BRNService s WHERE s.id.brn = :brn")
-    String getBRNByBRNService(@Param("brn") String brn);
+    List<String> findBRNsByBRNService(@Param("brn") String brn);
 
     @Query("SELECT s.roomNumber FROM BRNService s WHERE s.id.brn = :brn AND s.id.serviceCode = :serviceCode")
     Integer findRoomNumber(@Param("brn") String brn, @Param("serviceCode") Integer serviceCode);

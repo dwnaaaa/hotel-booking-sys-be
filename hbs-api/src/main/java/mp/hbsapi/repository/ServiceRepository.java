@@ -13,4 +13,7 @@ public interface ServiceRepository extends JpaRepository<Service, Integer> {
 
     @Query(value = "SELECT PRICE FROM SERVICES WHERE SERVICE_CODE = :serviceCode", nativeQuery = true)
     int getPriceByServiceCode(int serviceCode);
+
+    @Query(value = "SELECT SERVICE_NAME FROM SERVICES WHERE EMPLOYEE_TYPE = :employeeType", nativeQuery = true)
+    List<Service> findByType(String employeeType);
 }

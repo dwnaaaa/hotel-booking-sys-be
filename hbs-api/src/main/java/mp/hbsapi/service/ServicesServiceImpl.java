@@ -22,5 +22,10 @@ public class ServicesServiceImpl implements ServicesService{
         return serviceRepository.getPriceByServiceCode(serviceCode);
     }
 
+    @Override
+    public List<mp.hbsapi.entity.Service> getServicesByType(String employeeType) {
+            return serviceRepository.findByType(employeeType);
+    }
+
 
 }

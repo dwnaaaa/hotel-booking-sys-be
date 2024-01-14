@@ -8,4 +8,6 @@ public interface ServicesService {
     List<Service> getServicesByEmployeeType(char employeeType);
 
     int getPriceByServiceCode(int serviceCode);
+
+    List<Service> getServicesByType(String employeeType);
 }

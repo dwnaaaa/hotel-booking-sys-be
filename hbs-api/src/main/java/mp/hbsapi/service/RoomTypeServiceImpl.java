@@ -17,4 +17,10 @@ public class RoomTypeServiceImpl implements RoomTypeService{
     public List<RoomType> getAllRoomTypes() {
         return roomTypeRepository.findAll();
     }
+
+    @Override
+    public int getRoomPrice(char roomType) {
+        RoomType roomTypeEntity = roomTypeRepository.findByRoomType(roomType);
+        return (roomTypeEntity != null) ? roomTypeEntity.getPrice() : 0;
+    }
 }
