@@ -12,18 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-//@NamedStoredProcedureQuery(name = "Guest.addGuest", procedureName = "ADD_GUEST", parameters =  {
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_first_name", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_middle_name", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_last_name", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_birthday", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_street", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_city", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_state", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_zip_code", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_contact_no", type = String.class),
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "in_email_add", type = String.class),
-//})
 public class Guest {
     @Id
     @GeneratedValue(generator = "guest_seq")
@@ -33,7 +21,6 @@ public class Guest {
     private String middleName;
     private String lastName;
     private String birthday;
-    private int age;
     private String street;
     private String city;
     private String state;

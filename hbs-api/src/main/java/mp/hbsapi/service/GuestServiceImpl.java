@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.Guest;
 import mp.hbsapi.entity.request.AddGuestRequest;
 import mp.hbsapi.entity.request.GetGuestIdRequest;
+import mp.hbsapi.entity.request.GetGuestNameResponse;
 import mp.hbsapi.repository.GuestRepository;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public List<Guest> getAllGuests() {
-        return guestRepository.getAllGuests();
+        return guestRepository.findAll();
     }
 
     @Override
@@ -47,4 +48,11 @@ public class GuestServiceImpl implements GuestService {
     public long getGuestIdByName(GetGuestIdRequest request) {
         return guestRepository.getGuestIdByName(request.getFirstName(), request.getMiddleName(), request.getLastName());
     }
+
+    @Override
+    public Guest getGuestById(long id) {
+        return guestRepository.getGuestByGuestId(id);
+    }
+
+
 }

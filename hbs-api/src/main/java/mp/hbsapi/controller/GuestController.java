@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mp.hbsapi.entity.Guest;
 import mp.hbsapi.entity.request.AddGuestRequest;
 import mp.hbsapi.entity.request.GetGuestIdRequest;
+import mp.hbsapi.entity.request.GetGuestNameResponse;
 import mp.hbsapi.service.GuestService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,8 +39,13 @@ public class GuestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/id")
+    @GetMapping("/id")
     public ResponseEntity<Long> getGuestIdByName(@RequestBody GetGuestIdRequest request) {
         return new ResponseEntity<>(guestService.getGuestIdByName(request), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Guest> getGuestNameById(@PathVariable long id) {
+        return new ResponseEntity<>(guestService.getGuestById(id), HttpStatus.OK);
     }
 }
