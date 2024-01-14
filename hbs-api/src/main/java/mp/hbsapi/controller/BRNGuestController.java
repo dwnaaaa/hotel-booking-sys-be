@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -26,5 +27,15 @@ public class BRNGuestController {
     @PostMapping("/add")
     public ResponseEntity<BRNGuest> addBRNGuest(@RequestBody BRNGuestKey brnGuestToAdd) {
         return new ResponseEntity<>(brnGuestService.addBRNGuest(new BRNGuest(brnGuestToAdd)), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/add-many")
+    public ResponseEntity<List<BRNGuest>> addBRNGuests(@RequestBody List<BRNGuestKey> brnGuestsToAdd) {
+        List<BRNGuest> addedGuests = brnGuestsToAdd.stream()
+                .map(brnGuestKey -> new BRNGuest(brnGuestKey))
+                .map(brnGuestService::addBRNGuest)
+                .collect(Collectors.toList());
+
+        return new ResponseEntity<>(addedGuests, HttpStatus.CREATED);
     }
 }

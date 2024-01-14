@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -39,13 +40,32 @@ public class GuestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<Long> getGuestIdByName(@RequestBody GetGuestIdRequest request) {
-        return new ResponseEntity<>(guestService.getGuestIdByName(request), HttpStatus.OK);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Guest> getGuestNameById(@PathVariable long id) {
         return new ResponseEntity<>(guestService.getGuestById(id), HttpStatus.OK);
     }
+
+    @PostMapping("/id")
+    public ResponseEntity<Long> getGuestIdByName(@RequestBody GetGuestIdRequest request) {
+        return new ResponseEntity<>(guestService.getGuestIdByName(request), HttpStatus.OK);
+    }
+
+    @PostMapping("/ids")
+    public ResponseEntity<List<Long>> getGuestIdsByNames(@RequestBody List<GetGuestIdRequest> names) {
+        List<Long> guestIds = new ArrayList<>();
+
+        for (GetGuestIdRequest name : names) {
+            Long guestId = guestService.getGuestIdByName(name);
+            if (guestId != null) {
+                guestIds.add(guestId);
+            }
+        }
+
+        if (!guestIds.isEmpty()) {
+            return new ResponseEntity<>(guestIds, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
